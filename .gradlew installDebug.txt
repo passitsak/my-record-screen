@@ -1,0 +1,2 @@
+adb disconnect adb-10CG6P19M5004RA-zaQVnL._adb-tls-connect._tcp
+./gradlew installDebug

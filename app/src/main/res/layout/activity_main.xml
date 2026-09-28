@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Recorder"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- 1. Resolution -->
+        <TextView
+            android:id="@+id/lblRes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Resolution:"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+            
+        <Spinner
+            android:id="@+id/spinnerRes"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@android:drawable/btn_dropdown"
+            app:layout_constraintTop_toBottomOf="@id/lblRes" />
+
+        <!-- 2. Orientation -->
+        <TextView
+            android:id="@+id/lblOrientation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Recording Orientation:"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/spinnerRes" />
+            
+        <Spinner
+            android:id="@+id/spinnerOrientation"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@android:drawable/btn_dropdown"
+            app:layout_constraintTop_toBottomOf="@id/lblOrientation" />
+
+        <!-- 3. Audio Source -->
+        <TextView
+            android:id="@+id/lblAudio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Audio Source:"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/spinnerOrientation" />
+            
+        <Spinner
+            android:id="@+id/spinnerAudio"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@android:drawable/btn_dropdown"
+            app:layout_constraintTop_toBottomOf="@id/lblAudio" />
+
+        <!-- 4. Bitrate -->
+        <TextView
+            android:id="@+id/lblBitrate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Video Bitrate:"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/spinnerAudio" />
+            
+        <Spinner
+            android:id="@+id/spinnerBitrate"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@android:drawable/btn_dropdown"
+            app:layout_constraintTop_toBottomOf="@id/lblBitrate" />
+
+        <!-- 5. Frame Rate (FPS) -->
+        <TextView
+            android:id="@+id/lblFps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Frame Rate (FPS):"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/spinnerBitrate" />
+            
+        <Spinner
+            android:id="@+id/spinnerFps"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@android:drawable/btn_dropdown"
+            app:layout_constraintTop_toBottomOf="@id/lblFps" />
+
+        <!-- 6. Video Codec -->
+        <TextView
+            android:id="@+id/lblCodec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Video Codec:"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/spinnerFps" />
+            
+        <Spinner
+            android:id="@+id/spinnerCodec"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@android:drawable/btn_dropdown"
+            app:layout_constraintTop_toBottomOf="@id/lblCodec" />
+
+        <!-- 7. Notification Option -->
+        <TextView
+            android:id="@+id/lblNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notification Banner Style:"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/spinnerCodec" />
+            
+        <Spinner
+            android:id="@+id/spinnerNotification"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@android:drawable/btn_dropdown"
+            app:layout_constraintTop_toBottomOf="@id/lblNotification" />
+
+        <!-- Action Buttons -->
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="Start Recording (1s Delay)"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/spinnerNotification" />
+
+        <Button
+            android:id="@+id/btnStop"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="Stop Recording"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/btnStart"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <com.example.myrecordsgreen.RecordingGlowView
+            android:id="@+id/recordingGlowView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
